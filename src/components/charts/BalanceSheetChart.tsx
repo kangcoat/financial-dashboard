@@ -103,7 +103,10 @@ export default function BalanceSheetChart({ data }: BalanceSheetChartProps) {
               <LabelList 
                 dataKey="전전기" 
                 position="top" 
-                formatter={(value: number) => value !== undefined && value > 0 ? `${value.toFixed(1)}조` : ''}
+                formatter={(value: any) => {
+                  const num = typeof value === 'number' ? value : parseFloat(value);
+                  return num && num > 0 ? `${num.toFixed(1)}조` : '';
+                }}
                 style={{ fill: '#000000', fontSize: 11, fontWeight: 600 }}
               />
             </Bar>
@@ -112,7 +115,10 @@ export default function BalanceSheetChart({ data }: BalanceSheetChartProps) {
             <LabelList 
               dataKey="전기" 
               position="top" 
-              formatter={(value: number) => value !== undefined && value > 0 ? `${value.toFixed(1)}조` : ''}
+              formatter={(value: any) => {
+                const num = typeof value === 'number' ? value : parseFloat(value);
+                return num && num > 0 ? `${num.toFixed(1)}조` : '';
+              }}
               style={{ fill: '#000000', fontSize: 11, fontWeight: 600 }}
             />
           </Bar>
@@ -120,7 +126,10 @@ export default function BalanceSheetChart({ data }: BalanceSheetChartProps) {
             <LabelList 
               dataKey="당기" 
               position="top" 
-              formatter={(value: number) => value !== undefined && value > 0 ? `${value.toFixed(1)}조` : ''}
+              formatter={(value: any) => {
+                const num = typeof value === 'number' ? value : parseFloat(value);
+                return num && num > 0 ? `${num.toFixed(1)}조` : '';
+              }}
               style={{ fill: '#000000', fontSize: 11, fontWeight: 600 }}
             />
           </Bar>
